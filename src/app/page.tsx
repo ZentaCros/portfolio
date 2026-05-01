@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Github, Linkedin, Mail, ExternalLink, Code2, Database, BrainCircuit, Terminal, ArrowRight } from "lucide-react";
+import { Mail, ExternalLink, Code2, Database, BrainCircuit, Terminal, ArrowRight } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -57,10 +58,10 @@ export default function Home() {
           </span>
           <div className="flex gap-4">
             <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="p-2 hover:text-white transition-colors">
-              <Github className="w-5 h-5" />
+              <FaGithub className="w-5 h-5" />
             </a>
             <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a" target="_blank" rel="noreferrer" className="p-2 hover:text-white transition-colors">
-              <Linkedin className="w-5 h-5" />
+              <FaLinkedin className="w-5 h-5" />
             </a>
             <a href="mailto:hmzabizi602@gmail.com" className="p-2 hover:text-white transition-colors">
               <Mail className="w-5 h-5" />
@@ -136,7 +137,7 @@ export default function Home() {
                       </a>
                     )}
                     <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors">
-                      <Github className="w-4 h-4" /> Source
+                      <FaGithub className="w-4 h-4" /> Source
                     </a>
                   </div>
                 </div>
@@ -171,8 +172,8 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-zinc-500 text-sm">© {new Date().getFullYear()} Muhammad Hamza Azeem. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="https://github.com/ZentaCros" className="text-zinc-500 hover:text-white"><Github className="w-4 h-4" /></a>
-            <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a" className="text-zinc-500 hover:text-white"><Linkedin className="w-4 h-4" /></a>
+            <a href="https://github.com/ZentaCros" className="text-zinc-500 hover:text-white"><FaGithub className="w-4 h-4" /></a>
+            <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a" className="text-zinc-500 hover:text-white"><FaLinkedin className="w-4 h-4" /></a>
           </div>
         </div>
       </footer>
