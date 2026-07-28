@@ -104,6 +104,34 @@ const projectsData = [
   }
 ];
 
+const techStack = [
+  { category: "AI & Machine Learning", skills: ["PyTorch", "Scikit-Learn", "HuggingFace", "LangChain", "LLMs (Llama 3)"] },
+  { category: "Computer Vision", skills: ["OpenCV", "ConvNeXt", "Prithvi-EO", "Domain Adaptation", "EDL"] },
+  { category: "Data Engineering & Analytics", skills: ["Pandas", "NumPy", "SQL", "FAISS", "Data Mining"] },
+  { category: "Software Engineering", skills: ["Python", "TypeScript", "FastAPI", "Next.js", "Git"] }
+];
+
+const journeyData = [
+  {
+    year: "2025 - 2026",
+    title: "Deep Learning Researcher",
+    organization: "GIFT University (Capstones)",
+    description: "Led research on Fourier Domain Adaptation for deforestation and foundation models for land cover mapping, achieving state-of-the-art transfer learning results."
+  },
+  {
+    year: "2025 - Present",
+    title: "Freelance AI Developer",
+    organization: "Independent",
+    description: "Building production-ready RAG applications, scalable web scrapers, and enterprise LLM solutions for global clients."
+  },
+  {
+    year: "2022 - 2026",
+    title: "BS Computer Science",
+    organization: "GIFT University",
+    description: "Specialized in Computer Vision, Machine Learning, and Data Mining. Maintained a rigorous focus on AI architectures and data structures."
+  }
+];
+
 // --- CUSTOM CURSOR ---
 function CustomCursor() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -163,15 +191,21 @@ function AmbientBackground() {
 // --- MAIN PAGE ---
 export default function Home() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'overview' | 'methodology' | 'paper'>('overview');
   const [copied, setCopied] = useState(false);
+  const [bibtexCopied, setBibtexCopied] = useState(false);
   
   // Find selected project across both arrays
   const selectedProject = [...researchData, ...projectsData].find(p => p.id === selectedId);
 
   // Lock scroll when modal is open
   useEffect(() => {
-    if (selectedId) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
+    if (selectedId) {
+      document.body.style.overflow = "hidden";
+      setActiveTab('overview'); // Reset tab on new modal
+    } else {
+      document.body.style.overflow = "auto";
+    }
   }, [selectedId]);
 
   return (
@@ -274,13 +308,47 @@ export default function Home() {
         {/* RIGHT COLUMN (Scrolling) */}
         <main className="lg:w-7/12 flex flex-col space-y-32 py-10">
 
-          {/* Research Section */}
+          {/* Expertise & Tech Stack */}
+          <section id="expertise">
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              className="text-sm font-bold mb-10 text-slate-500 uppercase tracking-[0.2em]"
+            >
+              Expertise & Tech Stack
+            </motion.h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {techStack.map((stack, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="glass-card p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all duration-300 group"
+                >
+                  <h4 className="text-white font-bold mb-5 flex items-center gap-2 group-hover:text-indigo-400 transition-colors">
+                    {stack.category}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {stack.skills.map((skill) => (
+                      <span key={skill} className="text-xs font-semibold px-3 py-1.5 bg-indigo-500/10 text-indigo-200 rounded-lg border border-indigo-500/20">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* Publications & Papers Section */}
           <section id="research">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
               className="text-sm font-bold mb-10 text-slate-500 uppercase tracking-[0.2em]"
             >
-              My Research
+              Publications & Papers
             </motion.h3>
             
             <div className="flex flex-col space-y-12">
@@ -351,6 +419,39 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* Academic Journey Timeline */}
+          <section id="journey">
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              className="text-sm font-bold mb-10 text-slate-500 uppercase tracking-[0.2em]"
+            >
+              Academic & Professional Journey
+            </motion.h3>
+            
+            <div className="relative border-l border-white/10 ml-3 md:ml-4 space-y-12 pb-4">
+              {journeyData.map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="relative pl-8 md:pl-12"
+                >
+                  <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
+                  <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
+                    <h4 className="text-xl font-bold text-slate-200">{item.title}</h4>
+                    <span className="text-indigo-400 font-semibold text-sm">{item.year}</span>
+                  </div>
+                  <h5 className="text-slate-400 font-medium mb-4">{item.organization}</h5>
+                  <p className="text-slate-500 leading-relaxed text-sm md:text-base">
+                    {item.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -465,7 +566,7 @@ export default function Home() {
                     {selectedProject.subtitle}
                   </motion.p>
 
-                  <div className="flex flex-wrap gap-3 mb-10">
+                  <div className="flex flex-wrap gap-3 mb-8">
                     {selectedProject.tags.map((tag) => (
                       <span key={tag} className="text-sm font-semibold px-4 py-1.5 bg-white/5 text-slate-200 rounded-full border border-white/10">
                         {tag}
@@ -473,17 +574,54 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <div className="space-y-6 text-slate-300 leading-relaxed">
-                    <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-white/10 pb-2">Key Accomplishments</h5>
-                    <ul className="list-none space-y-4">
-                      {selectedProject.bullets.map((bullet, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="text-indigo-500 mr-4 mt-1">▹</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Tabs */}
+                  <div className="flex gap-6 border-b border-white/10 mb-8">
+                    <button 
+                      onClick={() => setActiveTab('overview')}
+                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'overview' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-500 hover:text-slate-300'}`}
+                    >
+                      Overview
+                    </button>
+                    <button 
+                      onClick={() => setActiveTab('methodology')}
+                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'methodology' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-500 hover:text-slate-300'}`}
+                    >
+                      Methodology
+                    </button>
                   </div>
+
+                  {activeTab === 'overview' && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                      className="space-y-6 text-slate-300 leading-relaxed"
+                    >
+                      <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-white/10 pb-2">Key Accomplishments</h5>
+                      <ul className="list-none space-y-4">
+                        {selectedProject.bullets.map((bullet, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-indigo-500 mr-4 mt-1">▹</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+
+                  {activeTab === 'methodology' && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                      className="space-y-6 text-slate-300 leading-relaxed"
+                    >
+                      <div className="p-6 rounded-xl bg-indigo-950/20 border border-indigo-500/10">
+                        <h5 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
+                          <FaDatabase className="inline" /> Architecture & Implementation
+                        </h5>
+                        <p className="text-slate-400 text-sm">
+                          Detailed architectural diagrams, algorithmic methodology, and training paradigms for this project will be populated here. This tab demonstrates the deeply technical "how" behind the results shown in the overview.
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
 
                   <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap gap-4">
                     {selectedProject.repo && (
@@ -495,6 +633,28 @@ export default function Home() {
                       >
                         <FaGithub className="text-xl" /> View Source Code
                       </a>
+                    )}
+                    {(selectedProject as any).id.startsWith('research-') && (
+                      <button 
+                        onClick={() => {
+                          navigator.clipboard.writeText(`@article{${selectedProject.id},\n  title={${selectedProject.title}},\n  author={Azeem, Muhammad Hamza},\n  year={2026}\n}`);
+                          setBibtexCopied(true);
+                          setTimeout(() => setBibtexCopied(false), 2000);
+                        }}
+                        className="relative inline-flex items-center gap-3 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/10 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1"
+                      >
+                        <span>[Cite]</span>
+                        <AnimatePresence>
+                          {bibtexCopied && (
+                            <motion.div 
+                              initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: -20 }} exit={{ opacity: 0, y: -10 }}
+                              className="absolute top-0 left-1/2 -translate-x-1/2 px-3 py-1 bg-indigo-500 text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-indigo-500/30 pointer-events-none"
+                            >
+                              BibTeX Copied!
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </button>
                     )}
                     {(selectedProject as any).liveUrl && (
                       <a 
