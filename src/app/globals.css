@@ -13,6 +13,12 @@
     color: var(--color-foreground);
     cursor: none; 
     overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  body::-webkit-scrollbar {
+    display: none;
   }
   
   a, button, [role="button"], input, select, textarea {

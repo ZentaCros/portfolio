@@ -32,6 +32,7 @@ const researchData = [
     image: null,
     tags: ["PyTorch", "Prithvi-EO v2", "LoRA", "Sentinel-2"],
     repo: "https://github.com/ZentaCros/prithvi-lulc-punjab",
+    liveUrl: "https://greenwatch-dashboard.vercel.app/webapp/index.html",
     bullets: [
       "Fine-tuned the 300M parameter NASA/IBM Prithvi-EO foundation model using Low-Rank Adaptation (LoRA) on Sentinel-2 imagery of Lahore, Pakistan.",
       "Demonstrated superior zero-shot cross-city generalization on unseen data (Gujranwala) compared to U-Net, DeepLabV3+, and SegFormer baselines.",
@@ -50,6 +51,7 @@ const projectsData = [
     image: "/images/askdoc.png",
     tags: ["FastAPI", "LangChain", "FAISS", "Llama 3"],
     repo: "https://github.com/ZentaCros/askdoc-ai",
+    liveUrl: "https://askdoc-ai-pi.vercel.app/",
     bullets: [
       "Engineered a full-stack Retrieval-Augmented Generation (RAG) application allowing users to upload PDFs and query the document context in real-time.",
       "Developed the Python backend using FastAPI and LangChain, implementing FAISS vector databases for efficient semantic search.",
@@ -62,7 +64,7 @@ const projectsData = [
     subtitle: "Association Rule Mining",
     date: "2025",
     company: "Academic Project",
-    image: null,
+    image: "/images/market_basket.png",
     tags: ["Python", "Pandas", "Apriori", "FP-Growth"],
     repo: "",
     bullets: [
@@ -77,7 +79,7 @@ const projectsData = [
     subtitle: "E-Commerce Intelligence",
     date: "2025",
     company: "Freelance",
-    image: null,
+    image: "/images/data_extraction.png",
     tags: ["Node.js", "Playwright", "REST APIs"],
     repo: "",
     bullets: [
@@ -116,12 +118,12 @@ function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-indigo-500 rounded-full pointer-events-none z-[100] mix-blend-screen"
+        className="fixed top-0 left-0 w-4 h-4 bg-indigo-500 rounded-full pointer-events-none z-[9999] mix-blend-screen"
         animate={{ x: mousePosition.x - 8, y: mousePosition.y - 8 }}
         transition={{ type: "spring", stiffness: 1000, damping: 40, mass: 0.1 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 border border-indigo-400/30 rounded-full pointer-events-none z-[99]"
+        className="fixed top-0 left-0 w-12 h-12 border border-indigo-400/30 rounded-full pointer-events-none z-[9998]"
         animate={{ x: mousePosition.x - 24, y: mousePosition.y - 24 }}
         transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.5 }}
       />
@@ -239,6 +241,16 @@ export default function Home() {
             <a href="mailto:hmzabizi602@gmail.com" className="text-slate-400 hover:text-indigo-400 transition-colors">
               <span className="sr-only">Email</span>
               <FaEnvelope className="text-2xl" />
+            </a>
+          </motion.div>
+          
+          {/* View Resume Button */}
+          <motion.div 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.9 }}
+            className="mt-6"
+          >
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="inline-block px-6 py-2.5 bg-white/5 hover:bg-white/10 text-indigo-300 font-bold rounded-lg border border-indigo-500/20 hover:border-indigo-500/50 transition-all text-sm">
+              View My Resume 📄
             </a>
           </motion.div>
         </header>
@@ -405,8 +417,8 @@ export default function Home() {
                     </ul>
                   </div>
 
-                  {selectedProject.repo && (
-                    <div className="mt-12 pt-8 border-t border-white/10">
+                  <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap gap-4">
+                    {selectedProject.repo && (
                       <a 
                         href={selectedProject.repo} 
                         target="_blank" 
@@ -415,8 +427,18 @@ export default function Home() {
                       >
                         <FaGithub className="text-xl" /> View Source Code
                       </a>
-                    </div>
-                  )}
+                    )}
+                    {(selectedProject as any).liveUrl && (
+                      <a 
+                        href={(selectedProject as any).liveUrl} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/10 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1"
+                      >
+                        <FaExternalLinkAlt className="text-lg" /> Live Demo
+                      </a>
+                    )}
+                  </div>
 
                 </div>
               </motion.div>
