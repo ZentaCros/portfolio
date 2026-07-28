@@ -163,6 +163,7 @@ function AmbientBackground() {
 // --- MAIN PAGE ---
 export default function Home() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
   
   // Find selected project across both arrays
   const selectedProject = [...researchData, ...projectsData].find(p => p.id === selectedId);
@@ -232,10 +233,29 @@ export default function Home() {
               <span className="sr-only">LinkedIn</span>
               <FaLinkedin className="text-2xl" />
             </a>
-            <a href="mailto:hmzabizi602@gmail.com" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-rose-400 hover:bg-rose-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-rose-400/30">
+            <button 
+              onClick={() => {
+                navigator.clipboard.writeText("hmzabizi602@gmail.com");
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              }}
+              className="relative w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-rose-400 hover:bg-rose-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-rose-400/30"
+            >
               <span className="sr-only">Email</span>
               <FaEnvelope className="text-2xl" />
-            </a>
+              <AnimatePresence>
+                {copied && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-rose-500 text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-rose-500/30"
+                  >
+                    Copied!
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
           </motion.div>
           
           <motion.div 
