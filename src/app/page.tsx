@@ -16,6 +16,7 @@ const researchData = [
     date: "Aug 2025 – Jan 2026",
     company: "Capstone Project 1, GIFT University",
     image: "/images/deforestation.png",
+    architectureImage: "/images/fda_architecture.png",
     tags: ["PyTorch", "ConvNeXt", "Domain Adaptation", "EDL"],
     repo: "https://github.com/ZentaCros/convnext-edl-deforestation-amazon",
     bullets: [
@@ -31,6 +32,7 @@ const researchData = [
     date: "Feb 2026 – Jun 2026",
     company: "Capstone Project 2, GIFT University",
     image: null,
+    architectureImage: "/images/lulc_architecture.png",
     tags: ["PyTorch", "Prithvi-EO v2", "LoRA", "Sentinel-2"],
     repo: "https://github.com/ZentaCros/prithvi-lulc-punjab",
     liveUrl: "https://greenwatch-dashboard.vercel.app/webapp/index.html",
@@ -612,14 +614,20 @@ export default function Home() {
                       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                       className="space-y-6 text-slate-300 leading-relaxed"
                     >
-                      <div className="p-6 rounded-xl bg-indigo-950/20 border border-indigo-500/10">
-                        <h5 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
-                          <FaDatabase className="inline" /> Architecture & Implementation
-                        </h5>
-                        <p className="text-slate-400 text-sm">
-                          Detailed architectural diagrams, algorithmic methodology, and training paradigms for this project will be populated here. This tab demonstrates the deeply technical "how" behind the results shown in the overview.
-                        </p>
-                      </div>
+                      {(selectedProject as any).architectureImage ? (
+                        <div className="relative w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-2 md:p-4">
+                          <Image src={(selectedProject as any).architectureImage} alt={`${selectedProject.title} Architecture`} width={1600} height={1000} className="w-full h-auto rounded-xl" unoptimized />
+                        </div>
+                      ) : (
+                        <div className="p-6 rounded-xl bg-indigo-950/20 border border-indigo-500/10">
+                          <h5 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
+                            <FaDatabase className="inline" /> Architecture & Implementation
+                          </h5>
+                          <p className="text-slate-400 text-sm">
+                            Detailed architectural diagrams, algorithmic methodology, and training paradigms for this project will be populated here. This tab demonstrates the deeply technical "how" behind the results shown in the overview.
+                          </p>
+                        </div>
+                      )}
                     </motion.div>
                   )}
 
@@ -637,7 +645,7 @@ export default function Home() {
                     {(selectedProject as any).id.startsWith('research-') && (
                       <button 
                         onClick={() => {
-                          navigator.clipboard.writeText(`@article{${selectedProject.id},\n  title={${selectedProject.title}},\n  author={Azeem, Muhammad Hamza},\n  year={2026}\n}`);
+                          navigator.clipboard.writeText(`@article{${selectedProject.id},\n  title={${selectedProject.title}},\n  author={Azeem, Muhammad Hamza},\n  journal={Under Review},\n  year={2026}\n}`);
                           setBibtexCopied(true);
                           setTimeout(() => setBibtexCopied(false), 2000);
                         }}
