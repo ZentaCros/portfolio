@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaEnvelope, FaExternalLinkAlt, FaTimes, FaPython, FaNodeJs, FaReact, FaDatabase } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaExternalLinkAlt, FaTimes, FaPython, FaNodeJs, FaReact, FaDatabase, FaInstagram, FaTwitter, FaDiscord } from "react-icons/fa";
 import { SiPytorch, SiPandas, SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
 // --- DATA ---
@@ -184,12 +184,17 @@ export default function Home() {
         <header className="lg:w-5/12 flex flex-col lg:sticky lg:top-24 h-auto lg:max-h-[calc(100vh-6rem)] relative">
           
           <motion.div 
+            layoutId="card-container-socials"
+            onClick={() => setSelectedId('socials')}
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-56 h-72 md:w-64 md:h-[22rem] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass"
+            className="relative w-56 h-72 md:w-64 md:h-[22rem] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass cursor-pointer hover:border-indigo-500/50 transition-colors group"
           >
-            <Image src="/profile.jpg" alt="Muhammad Hamza Azeem" fill className="object-cover" unoptimized />
+            <Image src="/profile.jpg" alt="Muhammad Hamza Azeem" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity duration-300">
+              <span className="bg-indigo-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg shadow-indigo-600/30">Connect</span>
+            </div>
           </motion.div>
           
           <motion.h1 
@@ -353,7 +358,7 @@ export default function Home() {
 
       {/* --- CINEMATIC MODAL --- */}
       <AnimatePresence>
-        {selectedId && selectedProject && (
+        {selectedId && (
           <>
             {/* Dark Overlay */}
             <motion.div 
@@ -367,7 +372,7 @@ export default function Home() {
             {/* Modal Content */}
             <div className="fixed inset-0 flex items-center justify-center z-[120] p-4 md:p-12 pointer-events-none">
               <motion.div 
-                layoutId={`card-container-${selectedProject.id}`}
+                layoutId={`card-container-${selectedId}`}
                 className="w-full max-w-4xl max-h-[90vh] glass-modal rounded-3xl overflow-y-auto pointer-events-auto relative shadow-2xl"
               >
                 {/* Close Button */}
@@ -378,13 +383,57 @@ export default function Home() {
                   <FaTimes />
                 </button>
 
-                {/* Optional High-Res Image Header */}
-                {selectedProject.image && (
-                  <div className="relative w-full h-64 md:h-80 bg-slate-900">
-                    <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover opacity-80" unoptimized />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+                {selectedId === 'socials' ? (
+                  // --- SOCIALS MODAL ---
+                  <div className="p-8 md:p-16 flex flex-col items-center text-center">
+                    <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-indigo-500/30 mb-8 shadow-[0_0_50px_rgba(99,102,241,0.3)]">
+                      <Image src="/profile.jpg" alt="Hamza Azeem" fill className="object-cover" unoptimized />
+                    </div>
+                    
+                    <motion.h4 layoutId="title-socials" className="text-3xl md:text-5xl font-extrabold text-white mb-4">
+                      Let's Connect
+                    </motion.h4>
+                    
+                    <p className="text-slate-400 text-lg mb-12 max-w-lg">
+                      Feel free to reach out to me on any of my social platforms. I'm always open to discussing AI, new projects, and creative ideas!
+                    </p>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
+                      <a href="https://instagram.com/hamza_azeem_rjpt" target="_blank" rel="noreferrer" className="flex flex-col items-center gap-4 p-6 glass-card rounded-2xl hover:bg-white/5 hover:-translate-y-2 transition-all border border-pink-500/20 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]">
+                        <FaInstagram className="text-5xl text-pink-500" />
+                        <div>
+                          <div className="font-bold text-white mb-1">Instagram</div>
+                          <div className="text-slate-400 text-sm">@hamza_azeem_rjpt</div>
+                        </div>
+                      </a>
+                      
+                      <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex flex-col items-center gap-4 p-6 glass-card rounded-2xl hover:bg-white/5 hover:-translate-y-2 transition-all border border-blue-400/20 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(96,165,250,0.2)]">
+                        <FaTwitter className="text-5xl text-blue-400" />
+                        <div>
+                          <div className="font-bold text-white mb-1">Twitter</div>
+                          <div className="text-slate-400 text-sm">@zenta_cross</div>
+                        </div>
+                      </a>
+
+                      <a href="https://discord.com/users/zentacross" target="_blank" rel="noreferrer" className="flex flex-col items-center gap-4 p-6 glass-card rounded-2xl hover:bg-white/5 hover:-translate-y-2 transition-all border border-indigo-400/20 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(129,140,248,0.2)]">
+                        <FaDiscord className="text-5xl text-indigo-400" />
+                        <div>
+                          <div className="font-bold text-white mb-1">Discord</div>
+                          <div className="text-slate-400 text-sm">@zentacross</div>
+                        </div>
+                      </a>
+                    </div>
                   </div>
-                )}
+                ) : selectedProject && (
+                  // --- PROJECT MODAL ---
+                  <>
+                    {/* Optional High-Res Image Header */}
+                    {selectedProject.image && (
+                      <div className="relative w-full h-64 md:h-80 bg-slate-900">
+                        <Image src={selectedProject.image} alt={selectedProject.title} fill className="object-cover opacity-80" unoptimized />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+                      </div>
+                    )}
 
                 <div className={`p-8 md:p-12 ${selectedProject.image ? 'pt-0 -mt-12 relative z-10' : ''}`}>
                   
@@ -440,6 +489,8 @@ export default function Home() {
                   </div>
 
                 </div>
+                  </>
+                )}
               </motion.div>
             </div>
           </>
