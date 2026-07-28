@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaEnvelope, FaExternalLinkAlt, FaTimes, FaPython, FaNodeJs, FaReact, FaDatabase, FaInstagram, FaTwitter, FaDiscord } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaExternalLinkAlt, FaTimes, FaPython, FaNodeJs, FaReact, FaDatabase, FaInstagram, FaDiscord } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { SiPytorch, SiPandas, SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
 // --- DATA ---
@@ -411,10 +412,10 @@ export default function Home() {
                           </div>
                         </a>
                         
-                        <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-blue-400/20 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(96,165,250,0.2)]">
-                          <FaTwitter className="text-4xl text-blue-400" />
+                        <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-neutral-400/20 hover:border-neutral-400/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                          <FaXTwitter className="text-4xl text-neutral-300" />
                           <div className="text-left">
-                            <div className="font-bold text-white mb-0.5 text-lg">Twitter</div>
+                            <div className="font-bold text-white mb-0.5 text-lg">X (Twitter)</div>
                             <div className="text-slate-400">@zenta_cross</div>
                           </div>
                         </a>
