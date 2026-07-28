@@ -210,7 +210,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl font-medium text-slate-400 mb-6"
           >
-            AI/ML Engineer | Data Scientist
+            Data Scientist | AI/ML Engineer
           </motion.h2>
 
           <motion.p 
