@@ -357,9 +357,12 @@ export default function Home() {
           </section>
 
           {/* Footer */}
-          <footer className="pt-20 pb-10 border-t border-white/5">
+          <footer className="pt-20 pb-10 border-t border-white/5 text-center lg:text-left">
             <p className="text-slate-500 text-sm">
-              Designed & Built with <span className="text-indigo-400">Next.js</span>, <span className="text-indigo-400">Tailwind CSS</span> & <span className="text-indigo-400">Framer Motion</span>.
+              <a href="https://github.com/ZentaCros/portfolio" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-indigo-400 transition-colors group">
+                <FaGithub className="text-lg group-hover:text-white transition-colors" />
+                Like this design? Get the source code on GitHub
+              </a>
               <br/><br/>
               &copy; {new Date().getFullYear()} Muhammad Hamza Azeem
             </p>
