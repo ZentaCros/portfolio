@@ -223,39 +223,42 @@ export default function Home() {
           {/* Prominent Social Links */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex items-center gap-5 mb-10"
+            className="mb-10"
           >
-            <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-white/30">
-              <span className="sr-only">GitHub</span>
-              <FaGithub className="text-2xl" />
-            </a>
-            <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-blue-400 hover:bg-blue-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-blue-400/30">
-              <span className="sr-only">LinkedIn</span>
-              <FaLinkedin className="text-2xl" />
-            </a>
-            <button 
-              onClick={() => {
-                navigator.clipboard.writeText("hmzabizi602@gmail.com");
-                setCopied(true);
-                setTimeout(() => setCopied(false), 2000);
-              }}
-              className="relative w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-rose-400 hover:bg-rose-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-rose-400/30"
-            >
-              <span className="sr-only">Email</span>
-              <FaEnvelope className="text-2xl" />
-              <AnimatePresence>
-                {copied && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-rose-500 text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-rose-500/30"
-                  >
-                    Copied!
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </button>
+            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Get in touch</h3>
+            <div className="flex items-center gap-5">
+              <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-white/30">
+                <span className="sr-only">GitHub</span>
+                <FaGithub className="text-2xl" />
+              </a>
+              <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-blue-400 hover:bg-blue-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-blue-400/30">
+                <span className="sr-only">LinkedIn</span>
+                <FaLinkedin className="text-2xl" />
+              </a>
+              <button 
+                onClick={() => {
+                  navigator.clipboard.writeText("hmzabizi602@gmail.com");
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                className="relative w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-rose-400 hover:bg-rose-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-rose-400/30"
+              >
+                <span className="sr-only">Email</span>
+                <FaEnvelope className="text-2xl" />
+                <AnimatePresence>
+                  {copied && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-rose-500 text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-rose-500/30"
+                    >
+                      Copied!
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </button>
+            </div>
           </motion.div>
           
           <motion.div 
