@@ -89,7 +89,7 @@ export default function Home() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
             <h3 className="text-xl font-bold mb-4 text-slate-200 md:hidden uppercase tracking-widest">About</h3>
             <p className="text-lg leading-relaxed text-slate-400">
-              I am an AI/ML Engineer specializing in Computer Vision and Applied AI. With a proven track record of developing production-ready LLM applications, I've achieved state-of-the-art results (such as a 23.3% F1-score improvement in deep learning research). I bridge the gap between complex AI research and scalable, real-world data science solutions.
+              I am an AI/ML Engineer specializing in Computer Vision and Applied AI. With a proven track record of developing production-ready LLM applications, I&apos;ve achieved state-of-the-art results (such as a 23.3% F1-score improvement in deep learning research). I bridge the gap between complex AI research and scalable, real-world data science solutions.
             </p>
           </motion.div>
         </section>
@@ -137,7 +137,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 glass-card p-4 md:p-6 hover:bg-slate-800/50">
               <div className="sm:col-span-8">
                 <h4 className="text-lg font-bold text-slate-200 mb-2 group-hover:text-indigo-400 transition-colors">Prithvi LULC Multi-Temporal Analysis</h4>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">Deployed IBM's Prithvi geospatial foundational model on HLS imagery over Punjab, classifying crop and vegetation cover dynamics.</p>
+                <p className="text-slate-400 text-sm mb-4 leading-relaxed">Deployed IBM&apos;s Prithvi geospatial foundational model on HLS imagery over Punjab, classifying crop and vegetation cover dynamics.</p>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs font-medium px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full">Python</span>
                   <span className="text-xs font-medium px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full">Transformers</span>
@@ -184,8 +184,8 @@ export default function Home() {
             {/* Project 6 */}
             <motion.div variants={fadeUp} className="group relative grid gap-4 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 glass-card p-4 md:p-6 hover:bg-slate-800/50">
               <div className="sm:col-span-8">
-                <h4 className="text-lg font-bold text-slate-200 mb-2 group-hover:text-indigo-400 transition-colors">Otsu's Thresholding (CV)</h4>
-                <p className="text-slate-400 text-sm mb-4 leading-relaxed">Implementation of Otsu's Method for automatic, adaptive image binarization. Computes optimal global thresholds using OpenCV.</p>
+                <h4 className="text-lg font-bold text-slate-200 mb-2 group-hover:text-indigo-400 transition-colors">Otsu&apos;s Thresholding (CV)</h4>
+                <p className="text-slate-400 text-sm mb-4 leading-relaxed">Implementation of Otsu&apos;s Method for automatic, adaptive image binarization. Computes optimal global thresholds using OpenCV.</p>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-xs font-medium px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full">Python</span>
                   <span className="text-xs font-medium px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full">OpenCV</span>
@@ -200,7 +200,7 @@ export default function Home() {
         <section id="contact" className="scroll-mt-24 pb-24">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h3 className="text-xl font-bold mb-4 text-slate-200 md:hidden uppercase tracking-widest">Contact</h3>
-            <p className="text-slate-400 mb-8 max-w-md leading-relaxed">Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+            <p className="text-slate-400 mb-8 max-w-md leading-relaxed">Currently open for new opportunities. Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!</p>
             <a href="mailto:hmzabizi602@gmail.com" className="inline-block px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition-colors shadow-lg shadow-indigo-500/30">
               Say Hello
             </a>
