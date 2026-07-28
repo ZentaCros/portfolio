@@ -11,24 +11,23 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    background-image: radial-gradient(circle at top, rgba(67, 97, 238, 0.15) 0%, rgba(3, 0, 20, 1) 50%);
-    background-attachment: fixed;
-    scroll-behavior: smooth;
+    cursor: none; 
+    overflow-x: hidden;
   }
   
-  ::selection {
-    background-color: rgba(67, 97, 238, 0.4);
+  a, button, [role="button"], input, select, textarea {
+    cursor: none;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
+    background: rgba(10, 10, 20, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
+  
   .glass-card {
-    @apply bg-slate-900/40 backdrop-blur-lg border border-slate-700/50 rounded-2xl hover:border-indigo-500/50 transition-colors duration-300;
-  }
-  .text-glow {
-    text-shadow: 0 0 20px rgba(67, 97, 238, 0.5);
   }
 }
