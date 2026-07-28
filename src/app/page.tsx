@@ -128,7 +128,7 @@ const journeyData = [
   },
   {
     year: "2022 - 2026",
-    title: "BS Computer Science",
+    title: "BS Data Science",
     organization: "GIFT University",
     description: "Specialized in Computer Vision, Machine Learning, and Data Mining. Maintained a rigorous focus on AI architectures and data structures."
   }
