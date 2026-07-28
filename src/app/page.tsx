@@ -187,7 +187,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass"
+            className="relative w-56 h-72 md:w-64 md:h-[22rem] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass"
           >
             <Image src="/profile.jpg" alt="Muhammad Hamza Azeem" fill className="object-cover" unoptimized />
           </motion.div>
