@@ -208,10 +208,19 @@ export default function Home() {
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-slate-500 mb-10 max-w-sm leading-relaxed"
+            className="text-slate-500 mb-8 max-w-sm leading-relaxed"
           >
             I build scalable AI solutions and state-of-the-art machine learning models to solve complex real-world problems, specializing in Computer Vision and Applied AI.
           </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
+            className="mb-10 flex"
+          >
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-300 font-bold rounded-lg border border-indigo-500/30 hover:border-indigo-500/60 transition-all shadow-[0_0_15px_rgba(79,70,229,0.15)] hover:shadow-[0_0_25px_rgba(79,70,229,0.3)]">
+              View My Resume 📄
+            </a>
+          </motion.div>
 
           {/* Floating Tech Stack Orbits in Hero */}
           <motion.div 
@@ -241,16 +250,6 @@ export default function Home() {
             <a href="mailto:hmzabizi602@gmail.com" className="text-slate-400 hover:text-indigo-400 transition-colors">
               <span className="sr-only">Email</span>
               <FaEnvelope className="text-2xl" />
-            </a>
-          </motion.div>
-          
-          {/* View Resume Button */}
-          <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.9 }}
-            className="mt-6"
-          >
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="inline-block px-6 py-2.5 bg-white/5 hover:bg-white/10 text-indigo-300 font-bold rounded-lg border border-indigo-500/20 hover:border-indigo-500/50 transition-all text-sm">
-              View My Resume 📄
             </a>
           </motion.div>
         </header>
