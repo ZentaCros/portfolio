@@ -385,43 +385,48 @@ export default function Home() {
 
                 {selectedId === 'socials' ? (
                   // --- SOCIALS MODAL ---
-                  <div className="p-8 md:p-16 flex flex-col items-center text-center">
-                    <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-indigo-500/30 mb-8 shadow-[0_0_50px_rgba(99,102,241,0.3)]">
+                  <div className="p-8 md:p-12 flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-16">
+                    
+                    {/* LEFT: Photo */}
+                    <div className="relative w-56 h-72 md:w-80 md:h-auto rounded-3xl overflow-hidden border-4 border-indigo-500/30 shadow-[0_0_50px_rgba(99,102,241,0.3)] shrink-0">
                       <Image src="/profile.jpg" alt="Hamza Azeem" fill className="object-cover" unoptimized />
                     </div>
                     
-                    <motion.h4 layoutId="title-socials" className="text-3xl md:text-5xl font-extrabold text-white mb-4">
-                      Let's Connect
-                    </motion.h4>
-                    
-                    <p className="text-slate-400 text-lg mb-12 max-w-lg">
-                      Feel free to reach out to me on any of my social platforms. I'm always open to discussing AI, new projects, and creative ideas!
-                    </p>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl">
-                      <a href="https://instagram.com/hamza_azeem_rjpt" target="_blank" rel="noreferrer" className="flex flex-col items-center gap-4 p-6 glass-card rounded-2xl hover:bg-white/5 hover:-translate-y-2 transition-all border border-pink-500/20 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]">
-                        <FaInstagram className="text-5xl text-pink-500" />
-                        <div>
-                          <div className="font-bold text-white mb-1">Instagram</div>
-                          <div className="text-slate-400 text-sm">@hamza_azeem_rjpt</div>
-                        </div>
-                      </a>
+                    {/* RIGHT: Content & Links */}
+                    <div className="flex flex-col justify-center flex-1 text-center md:text-left py-4">
+                      <motion.h4 layoutId="title-socials" className="text-3xl md:text-5xl font-extrabold text-white mb-4">
+                        Let's Connect
+                      </motion.h4>
                       
-                      <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex flex-col items-center gap-4 p-6 glass-card rounded-2xl hover:bg-white/5 hover:-translate-y-2 transition-all border border-blue-400/20 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(96,165,250,0.2)]">
-                        <FaTwitter className="text-5xl text-blue-400" />
-                        <div>
-                          <div className="font-bold text-white mb-1">Twitter</div>
-                          <div className="text-slate-400 text-sm">@zenta_cross</div>
-                        </div>
-                      </a>
+                      <p className="text-slate-400 text-lg mb-10 max-w-lg mx-auto md:mx-0">
+                        Feel free to reach out to me on any of my social platforms. I'm always open to discussing AI, new projects, and creative ideas!
+                      </p>
+                      
+                      <div className="flex flex-col gap-4 w-full max-w-md mx-auto md:mx-0">
+                        <a href="https://instagram.com/hamza_azeem_rjpt" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-pink-500/20 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]">
+                          <FaInstagram className="text-4xl text-pink-500" />
+                          <div className="text-left">
+                            <div className="font-bold text-white mb-0.5 text-lg">Instagram</div>
+                            <div className="text-slate-400">@hamza_azeem_rjpt</div>
+                          </div>
+                        </a>
+                        
+                        <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-blue-400/20 hover:border-blue-400/50 hover:shadow-[0_0_20px_rgba(96,165,250,0.2)]">
+                          <FaTwitter className="text-4xl text-blue-400" />
+                          <div className="text-left">
+                            <div className="font-bold text-white mb-0.5 text-lg">Twitter</div>
+                            <div className="text-slate-400">@zenta_cross</div>
+                          </div>
+                        </a>
 
-                      <a href="https://discord.com/users/zentacross" target="_blank" rel="noreferrer" className="flex flex-col items-center gap-4 p-6 glass-card rounded-2xl hover:bg-white/5 hover:-translate-y-2 transition-all border border-indigo-400/20 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(129,140,248,0.2)]">
-                        <FaDiscord className="text-5xl text-indigo-400" />
-                        <div>
-                          <div className="font-bold text-white mb-1">Discord</div>
-                          <div className="text-slate-400 text-sm">@zentacross</div>
-                        </div>
-                      </a>
+                        <a href="https://discord.com/users/zentacross" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-indigo-400/20 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(129,140,248,0.2)]">
+                          <FaDiscord className="text-4xl text-indigo-400" />
+                          <div className="text-left">
+                            <div className="font-bold text-white mb-0.5 text-lg">Discord</div>
+                            <div className="text-slate-400">@zentacross</div>
+                          </div>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 ) : selectedProject && (
