@@ -219,43 +219,31 @@ export default function Home() {
             I build scalable AI solutions and state-of-the-art machine learning models to solve complex real-world problems, specializing in Computer Vision and Applied AI.
           </motion.p>
           
+          {/* Prominent Social Links */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }}
+            className="flex items-center gap-5 mb-10"
+          >
+            <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-white/30">
+              <span className="sr-only">GitHub</span>
+              <FaGithub className="text-2xl" />
+            </a>
+            <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-blue-400 hover:bg-blue-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-blue-400/30">
+              <span className="sr-only">LinkedIn</span>
+              <FaLinkedin className="text-2xl" />
+            </a>
+            <a href="mailto:hmzabizi602@gmail.com" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-rose-400 hover:bg-rose-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-rose-400/30">
+              <span className="sr-only">Email</span>
+              <FaEnvelope className="text-2xl" />
+            </a>
+          </motion.div>
+          
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
             className="mb-10 flex"
           >
             <a href="/resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-300 font-bold rounded-lg border border-indigo-500/30 hover:border-indigo-500/60 transition-all shadow-[0_0_15px_rgba(79,70,229,0.15)] hover:shadow-[0_0_25px_rgba(79,70,229,0.3)]">
               View My Resume 📄
-            </a>
-          </motion.div>
-
-          {/* Floating Tech Stack Orbits in Hero */}
-          <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.6 }}
-            className="flex flex-wrap gap-4 mb-12"
-          >
-            {[SiPytorch, FaPython, SiNextdotjs, FaDatabase].map((Icon, idx) => (
-              <div key={idx} className="w-10 h-10 rounded-full glass flex items-center justify-center text-slate-400 hover:text-indigo-400 hover:scale-110 transition-all duration-300">
-                <Icon className="text-xl" />
-              </div>
-            ))}
-          </motion.div>
-          
-          {/* Social Links */}
-          <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex space-x-6 mt-auto pb-8 lg:pb-0"
-          >
-            <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-indigo-400 transition-colors">
-              <span className="sr-only">GitHub</span>
-              <FaGithub className="text-2xl" />
-            </a>
-            <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-indigo-400 transition-colors">
-              <span className="sr-only">LinkedIn</span>
-              <FaLinkedin className="text-2xl" />
-            </a>
-            <a href="mailto:hmzabizi602@gmail.com" className="text-slate-400 hover:text-indigo-400 transition-colors">
-              <span className="sr-only">Email</span>
-              <FaEnvelope className="text-2xl" />
             </a>
           </motion.div>
         </header>
