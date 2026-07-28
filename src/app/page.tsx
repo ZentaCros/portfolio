@@ -180,7 +180,7 @@ export default function Home() {
       <AmbientBackground />
 
       {/* Two Column Layout Wrapper */}
-      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto px-6 py-12 md:px-12 md:py-24 gap-12 lg:gap-24 relative z-10">
+      <div className="flex flex-col lg:flex-row max-w-[1600px] mx-auto px-6 py-12 md:px-12 lg:px-24 xl:px-32 md:py-24 gap-12 lg:gap-24 relative z-10">
         
         {/* LEFT COLUMN (Sticky) */}
         <header className="lg:w-5/12 flex flex-col lg:sticky lg:top-24 h-auto lg:max-h-[calc(100vh-6rem)] relative">
