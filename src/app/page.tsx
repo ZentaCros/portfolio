@@ -110,7 +110,8 @@ const techStack = [
   { category: "AI & Machine Learning", skills: ["PyTorch", "Scikit-Learn", "HuggingFace", "LangChain", "LLMs (Llama 3)"] },
   { category: "Computer Vision", skills: ["OpenCV", "ConvNeXt", "Prithvi-EO", "Domain Adaptation", "EDL"] },
   { category: "Data Engineering & Analytics", skills: ["Pandas", "NumPy", "SQL", "FAISS", "Data Mining"] },
-  { category: "Software Engineering", skills: ["Python", "TypeScript", "FastAPI", "Next.js", "Git"] }
+  { category: "Software Engineering", skills: ["Python", "TypeScript", "FastAPI", "Next.js", "Git"] },
+  { category: "Tools", skills: ["VS Code", "Google Antigravity", "Cursor AI", "Claude Code", "Codex"] }
 ];
 
 const journeyData = [
