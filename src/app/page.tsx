@@ -150,12 +150,12 @@ function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-4 h-4 bg-indigo-500 rounded-full pointer-events-none z-[9999] mix-blend-screen"
+        className="hidden md:block fixed top-0 left-0 w-4 h-4 bg-indigo-500 rounded-full pointer-events-none z-[9999] mix-blend-screen"
         animate={{ x: mousePosition.x - 8, y: mousePosition.y - 8 }}
         transition={{ type: "spring", stiffness: 1000, damping: 40, mass: 0.1 }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-12 h-12 border border-indigo-400/30 rounded-full pointer-events-none z-[9998]"
+        className="hidden md:block fixed top-0 left-0 w-12 h-12 border border-indigo-400/30 rounded-full pointer-events-none z-[9998]"
         animate={{ x: mousePosition.x - 24, y: mousePosition.y - 24 }}
         transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.5 }}
       />
@@ -212,7 +212,7 @@ export default function Home() {
   }, [selectedId]);
 
   return (
-    <main className="relative min-h-screen text-slate-200 selection:bg-indigo-500/30 font-sans">
+    <main className="relative min-h-screen overflow-x-hidden text-slate-200 selection:bg-indigo-500/30 font-sans">
       <CustomCursor />
       <AmbientBackground />
 
@@ -497,17 +497,17 @@ export default function Home() {
                 {/* Close Button */}
                 <button 
                   onClick={() => setSelectedId(null)}
-                  className="absolute top-6 right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-colors z-10"
+                  className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-colors z-[130]"
                 >
                   <FaTimes />
                 </button>
 
                 {selectedId === 'socials' ? (
                   // --- SOCIALS MODAL ---
-                  <div className="p-8 md:p-12 flex flex-col md:flex-row items-center md:items-stretch gap-10 md:gap-16">
+                  <div className="p-6 md:p-12 flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-16">
                     
                     {/* LEFT: Photo */}
-                    <div className="relative w-56 h-72 md:w-80 md:h-auto rounded-3xl overflow-hidden border-4 border-indigo-500/30 shadow-[0_0_50px_rgba(99,102,241,0.3)] shrink-0">
+                    <div className="relative w-48 h-64 md:w-80 md:h-auto rounded-3xl overflow-hidden border-4 border-indigo-500/30 shadow-[0_0_50px_rgba(99,102,241,0.3)] shrink-0">
                       <Image src="/profile.jpg" alt="Hamza Azeem" fill className="object-cover" unoptimized />
                     </div>
                     
@@ -522,7 +522,7 @@ export default function Home() {
                       </p>
                       
                       <div className="flex flex-col gap-4 w-full max-w-md mx-auto md:mx-0">
-                        <a href="https://instagram.com/hamza_azeem_rjpt" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-pink-500/20 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]">
+                        <a href="https://instagram.com/hamza_azeem_rjpt" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-pink-500/20 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]">
                           <FaInstagram className="text-4xl text-pink-500" />
                           <div className="text-left">
                             <div className="font-bold text-white mb-0.5 text-lg">Instagram</div>
@@ -530,7 +530,7 @@ export default function Home() {
                           </div>
                         </a>
                         
-                        <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-neutral-400/20 hover:border-neutral-400/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                        <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-neutral-400/20 hover:border-neutral-400/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                           <FaXTwitter className="text-4xl text-neutral-300" />
                           <div className="text-left">
                             <div className="font-bold text-white mb-0.5 text-lg">X (Twitter)</div>
@@ -538,7 +538,7 @@ export default function Home() {
                           </div>
                         </a>
 
-                        <a href="https://discord.com/users/zentacross" target="_blank" rel="noreferrer" className="flex items-center gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-indigo-400/20 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(129,140,248,0.2)]">
+                        <a href="https://discord.com/users/zentacross" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-indigo-400/20 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(129,140,248,0.2)]">
                           <FaDiscord className="text-4xl text-indigo-400" />
                           <div className="text-left">
                             <div className="font-bold text-white mb-0.5 text-lg">Discord</div>
@@ -559,7 +559,7 @@ export default function Home() {
                       </div>
                     )}
 
-                <div className={`p-8 md:p-12 ${selectedProject.image ? 'pt-0 -mt-12 relative z-10' : ''}`}>
+                <div className={`p-6 md:p-12 ${selectedProject.image ? 'pt-0 -mt-8 md:-mt-12 relative z-10' : ''}`}>
                   
                   <motion.h4 layoutId={`title-${selectedProject.id}`} className="text-3xl md:text-4xl font-extrabold text-white mb-2">
                     {selectedProject.title}
@@ -632,7 +632,7 @@ export default function Home() {
                     </motion.div>
                   )}
 
-                  <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap gap-4">
+                  <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                     {selectedProject.repo && (
                       <a 
                         href={selectedProject.repo} 
