@@ -212,8 +212,9 @@ export default function Home() {
   }, [selectedId]);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden text-slate-200 selection:bg-indigo-500/30 font-sans">
-      <CustomCursor />
+    <>
+      <div className="relative min-h-screen overflow-x-hidden text-slate-200 selection:bg-indigo-500/30 font-sans">
+        <CustomCursor />
       <AmbientBackground />
 
       {/* Two Column Layout Wrapper */}
@@ -474,6 +475,7 @@ export default function Home() {
 
         </main>
       </div>
+      </div>
 
       {/* --- CINEMATIC MODAL --- */}
       <AnimatePresence>
@@ -685,6 +687,6 @@ export default function Home() {
           </>
         )}
       </AnimatePresence>
-    </main>
+    </>
   );
 }
