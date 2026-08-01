@@ -307,7 +307,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
             className="mb-10 flex"
           >
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-300 font-bold rounded-lg border border-indigo-500/30 hover:border-indigo-500/60 transition-all shadow-[0_0_15px_rgba(79,70,229,0.15)] hover:shadow-[0_0_25px_rgba(79,70,229,0.3)]">
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-2.5 bg-indigo-600/10 hover:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 font-bold rounded-lg border border-indigo-500/30 hover:border-indigo-500/60 transition-all shadow-[0_0_15px_rgba(79,70,229,0.15)] hover:shadow-[0_0_25px_rgba(79,70,229,0.3)]">
               View My Resume 📄
             </a>
           </motion.div>
@@ -340,7 +340,7 @@ export default function Home() {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {stack.skills.map((skill) => (
-                      <span key={skill} className="text-xs font-semibold px-3 py-1.5 bg-indigo-500/10 text-indigo-200 rounded-lg border border-indigo-500/20">
+                      <span key={skill} className="text-xs font-semibold px-3 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-200 rounded-lg border border-indigo-200 dark:border-indigo-500/20">
                         {skill}
                       </span>
                     ))}
@@ -380,7 +380,7 @@ export default function Home() {
                     </motion.p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="text-xs font-medium px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full border border-indigo-500/20">
+                        <span key={tag} className="text-xs font-medium px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 rounded-full border border-indigo-200 dark:border-indigo-500/20">
                           {tag}
                         </span>
                       ))}
@@ -421,7 +421,7 @@ export default function Home() {
                     </motion.p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="text-xs font-medium px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full border border-indigo-500/20">
+                        <span key={tag} className="text-xs font-medium px-3 py-1 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 rounded-full border border-indigo-200 dark:border-indigo-500/20">
                           {tag}
                         </span>
                       ))}
@@ -454,7 +454,7 @@ export default function Home() {
                   <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
                   <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
                     <h4 className="text-xl font-bold text-slate-900 dark:text-slate-200">{item.title}</h4>
-                    <span className="text-indigo-400 font-semibold text-sm">{item.year}</span>
+                    <span className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm">{item.year}</span>
                   </div>
                   <h5 className="text-slate-700 dark:text-slate-400 font-medium mb-4">{item.organization}</h5>
                   <p className="text-slate-600 dark:text-slate-500 leading-relaxed text-sm md:text-base">
@@ -571,7 +571,7 @@ export default function Home() {
                     {selectedProject.title}
                   </motion.h4>
                   
-                  <motion.p layoutId={`subtitle-${selectedProject.id}`} className="text-indigo-400 text-lg mb-8 font-medium">
+                  <motion.p layoutId={`subtitle-${selectedProject.id}`} className="text-indigo-600 dark:text-indigo-400 text-lg mb-8 font-medium">
                     {selectedProject.subtitle}
                   </motion.p>
 
@@ -587,13 +587,13 @@ export default function Home() {
                   <div className="flex gap-6 border-b border-slate-300 dark:border-white/10 mb-8">
                     <button 
                       onClick={() => setActiveTab('overview')}
-                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'overview' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300'}`}
+                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'overview' ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 dark:border-indigo-400' : 'text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300'}`}
                     >
                       Overview
                     </button>
                     <button 
                       onClick={() => setActiveTab('methodology')}
-                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'methodology' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300'}`}
+                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'methodology' ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 dark:border-indigo-400' : 'text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300'}`}
                     >
                       Methodology
                     </button>
@@ -626,8 +626,8 @@ export default function Home() {
                           <Image src={(selectedProject as any).architectureImage} alt={`${selectedProject.title} Architecture`} width={1600} height={1000} className="w-full h-auto rounded-xl" unoptimized />
                         </div>
                       ) : (
-                        <div className="p-6 rounded-xl bg-indigo-950/20 border border-indigo-500/10">
-                          <h5 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
+                        <div className="p-6 rounded-xl bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-500/10">
+                          <h5 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-3 flex items-center gap-2">
                             <FaDatabase className="inline" /> Architecture & Implementation
                           </h5>
                           <p className="text-slate-700 dark:text-slate-400 text-sm">
