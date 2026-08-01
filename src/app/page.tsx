@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeToggle } from "@/components/theme-toggle";
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaEnvelope, FaExternalLinkAlt, FaTimes, FaPython, FaNodeJs, FaReact, FaDatabase, FaInstagram, FaDiscord } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -178,15 +179,15 @@ function AmbientBackground() {
   return (
     <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-grid">
       <motion.div 
-        className="absolute w-[600px] h-[600px] rounded-full blur-[120px] bg-indigo-900/20"
+        className="absolute w-[600px] h-[600px] rounded-full blur-[120px] bg-indigo-100/50 dark:bg-indigo-900/20"
         animate={{
           x: mousePosition.x - 300,
           y: mousePosition.y - 300,
         }}
         transition={{ type: "tween", ease: "linear", duration: 0.2 }}
       />
-      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[100px] bg-purple-900/10 animate-pulse" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[120px] bg-blue-900/10" />
+      <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[100px] bg-purple-100/50 dark:bg-purple-900/10 animate-pulse" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[120px] bg-blue-100/50 dark:bg-blue-900/10" />
     </div>
   );
 }
@@ -213,7 +214,10 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative min-h-screen overflow-x-hidden text-slate-200 selection:bg-indigo-500/30 font-sans">
+      <div className="fixed top-6 right-6 md:top-10 md:right-10 z-[9999]">
+        <ThemeToggle />
+      </div>
+      <div className="relative min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-200 selection:bg-indigo-500/30 font-sans">
         <CustomCursor />
       <AmbientBackground />
 
@@ -229,11 +233,11 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-56 h-72 md:w-64 md:h-[22rem] rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass cursor-pointer hover:border-indigo-500/50 transition-colors group"
+            className="relative w-56 h-72 md:w-64 md:h-[22rem] rounded-3xl overflow-hidden border border-slate-300 dark:border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass cursor-pointer hover:border-indigo-500/50 transition-colors group"
           >
             <Image src="/profile.jpg" alt="Muhammad Hamza Azeem" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity duration-300">
-              <span className="bg-indigo-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg shadow-indigo-600/30">Connect</span>
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-white/90 dark:bg-black/40 transition-opacity duration-300">
+              <span className="bg-indigo-600 text-slate-900 dark:text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg shadow-indigo-600/30">Connect</span>
             </div>
           </motion.div>
           
@@ -246,14 +250,14 @@ export default function Home() {
           
           <motion.h2 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl font-medium text-slate-400 mb-6"
+            className="text-lg md:text-xl font-medium text-slate-700 dark:text-slate-400 mb-6"
           >
             Data Scientist | AI/ML Engineer
           </motion.h2>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-slate-500 mb-8 max-w-sm leading-relaxed"
+            className="text-slate-600 dark:text-slate-500 mb-8 max-w-sm leading-relaxed"
           >
             I build scalable AI solutions and state-of-the-art machine learning models to solve complex real-world problems, specializing in Computer Vision and Applied AI.
           </motion.p>
@@ -263,13 +267,13 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }}
             className="mb-10"
           >
-            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Get in touch</h3>
+            <h3 className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em] mb-4">Get in touch</h3>
             <div className="flex items-center gap-5">
-              <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-white/30">
+              <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white hover:bg-black/5 dark:bg-white/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-slate-300 dark:border-white/10 hover:border-slate-300 dark:border-white/30">
                 <span className="sr-only">GitHub</span>
                 <FaGithub className="text-2xl" />
               </a>
-              <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-blue-400 hover:bg-blue-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-blue-400/30">
+              <a href="https://www.linkedin.com/in/hamza-azeem-data-scientist-86a99925a/" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-blue-400 hover:bg-blue-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-slate-300 dark:border-white/10 hover:border-blue-400/30">
                 <span className="sr-only">LinkedIn</span>
                 <FaLinkedin className="text-2xl" />
               </a>
@@ -279,7 +283,7 @@ export default function Home() {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                className="relative w-12 h-12 rounded-full glass flex items-center justify-center text-slate-300 hover:text-rose-400 hover:bg-rose-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-white/10 hover:border-rose-400/30"
+                className="relative w-12 h-12 rounded-full glass flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-rose-400 hover:bg-rose-400/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-slate-300 dark:border-white/10 hover:border-rose-400/30"
               >
                 <span className="sr-only">Email</span>
                 <FaEnvelope className="text-2xl" />
@@ -289,7 +293,7 @@ export default function Home() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-rose-500 text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-rose-500/30"
+                      className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 bg-rose-500 text-slate-900 dark:text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-rose-500/30"
                     >
                       Copied!
                     </motion.div>
@@ -316,7 +320,7 @@ export default function Home() {
           <section id="expertise">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
             >
               Expertise & Tech Stack
             </motion.h3>
@@ -329,9 +333,9 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="glass-card p-6 rounded-2xl border border-white/5 hover:border-indigo-500/30 transition-all duration-300 group"
+                  className="glass-card p-6 rounded-2xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/30 transition-all duration-300 group"
                 >
-                  <h4 className="text-white font-bold mb-5 flex items-center gap-2 group-hover:text-indigo-400 transition-colors">
+                  <h4 className="text-slate-900 dark:text-white font-bold mb-5 flex items-center gap-2 group-hover:text-indigo-400 transition-colors">
                     {stack.category}
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -350,7 +354,7 @@ export default function Home() {
           <section id="research">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
             >
               Publications & Papers
             </motion.h3>
@@ -363,15 +367,15 @@ export default function Home() {
                   onClick={() => setSelectedId(project.id)}
                   className="group relative cursor-pointer"
                 >
-                  <div className="absolute -inset-4 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
+                  <div className="absolute -inset-4 rounded-2xl bg-slate-100 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
                   <div className="relative glass-card p-6 md:p-8 rounded-2xl overflow-hidden hover:border-indigo-500/30 transition-all duration-300">
                     <div className="flex justify-between items-start mb-4">
-                      <motion.h4 layoutId={`title-${project.id}`} className="text-xl font-bold text-slate-200 group-hover:text-indigo-400 transition-colors">
+                      <motion.h4 layoutId={`title-${project.id}`} className="text-xl font-bold text-slate-900 dark:text-slate-200 group-hover:text-indigo-400 transition-colors">
                         {project.title}
                       </motion.h4>
                       <FaExternalLinkAlt className="text-slate-600 group-hover:text-indigo-400 transition-colors opacity-0 group-hover:opacity-100" />
                     </div>
-                    <motion.p layoutId={`subtitle-${project.id}`} className="text-slate-400 text-sm mb-6 font-medium">
+                    <motion.p layoutId={`subtitle-${project.id}`} className="text-slate-700 dark:text-slate-400 text-sm mb-6 font-medium">
                       {project.company} &bull; {project.date}
                     </motion.p>
                     <div className="flex flex-wrap gap-2">
@@ -391,7 +395,7 @@ export default function Home() {
           <section id="projects">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
             >
               Selected Projects
             </motion.h3>
@@ -404,15 +408,15 @@ export default function Home() {
                   onClick={() => setSelectedId(project.id)}
                   className="group relative cursor-pointer"
                 >
-                  <div className="absolute -inset-4 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
+                  <div className="absolute -inset-4 rounded-2xl bg-slate-100 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg" />
                   <div className="relative glass-card p-6 md:p-8 rounded-2xl overflow-hidden hover:border-indigo-500/30 transition-all duration-300">
                     <div className="flex justify-between items-start mb-4">
-                      <motion.h4 layoutId={`title-${project.id}`} className="text-xl font-bold text-slate-200 group-hover:text-indigo-400 transition-colors">
+                      <motion.h4 layoutId={`title-${project.id}`} className="text-xl font-bold text-slate-900 dark:text-slate-200 group-hover:text-indigo-400 transition-colors">
                         {project.title}
                       </motion.h4>
                       <FaExternalLinkAlt className="text-slate-600 group-hover:text-indigo-400 transition-colors opacity-0 group-hover:opacity-100" />
                     </div>
-                    <motion.p layoutId={`subtitle-${project.id}`} className="text-slate-400 text-sm mb-6 font-medium">
+                    <motion.p layoutId={`subtitle-${project.id}`} className="text-slate-700 dark:text-slate-400 text-sm mb-6 font-medium">
                       {project.company} &bull; {project.date}
                     </motion.p>
                     <div className="flex flex-wrap gap-2">
@@ -432,12 +436,12 @@ export default function Home() {
           <section id="journey">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
             >
               Academic & Professional Journey
             </motion.h3>
             
-            <div className="relative border-l border-white/10 ml-3 md:ml-4 space-y-12 pb-4">
+            <div className="relative border-l border-slate-300 dark:border-white/10 ml-3 md:ml-4 space-y-12 pb-4">
               {journeyData.map((item, idx) => (
                 <motion.div 
                   key={idx}
@@ -449,11 +453,11 @@ export default function Home() {
                 >
                   <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.8)]" />
                   <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
-                    <h4 className="text-xl font-bold text-slate-200">{item.title}</h4>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-slate-200">{item.title}</h4>
                     <span className="text-indigo-400 font-semibold text-sm">{item.year}</span>
                   </div>
-                  <h5 className="text-slate-400 font-medium mb-4">{item.organization}</h5>
-                  <p className="text-slate-500 leading-relaxed text-sm md:text-base">
+                  <h5 className="text-slate-700 dark:text-slate-400 font-medium mb-4">{item.organization}</h5>
+                  <p className="text-slate-600 dark:text-slate-500 leading-relaxed text-sm md:text-base">
                     {item.description}
                   </p>
                 </motion.div>
@@ -462,10 +466,10 @@ export default function Home() {
           </section>
 
           {/* Footer */}
-          <footer className="pt-20 pb-10 border-t border-white/5 text-center lg:text-left">
-            <p className="text-slate-500 text-sm">
+          <footer className="pt-20 pb-10 border-t border-slate-200 dark:border-white/5 text-center lg:text-left">
+            <p className="text-slate-600 dark:text-slate-500 text-sm">
               <a href="https://github.com/ZentaCros/portfolio" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-indigo-400 transition-colors group">
-                <FaGithub className="text-lg group-hover:text-white transition-colors" />
+                <FaGithub className="text-lg group-hover:text-slate-900 dark:text-white transition-colors" />
                 Like this design? Get the source code on GitHub
               </a>
               <br/><br/>
@@ -487,7 +491,7 @@ export default function Home() {
               animate={{ opacity: 1 }} 
               exit={{ opacity: 0 }} 
               onClick={() => setSelectedId(null)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110]"
+              className="fixed inset-0 bg-white dark:bg-black/60 backdrop-blur-sm z-[110]"
             />
             
             {/* Modal Content */}
@@ -499,7 +503,7 @@ export default function Home() {
                 {/* Close Button */}
                 <button 
                   onClick={() => setSelectedId(null)}
-                  className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-white/10 transition-colors z-[130]"
+                  className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white hover:bg-black/5 dark:bg-white/10 transition-colors z-[130]"
                 >
                   <FaTimes />
                 </button>
@@ -515,36 +519,36 @@ export default function Home() {
                     
                     {/* RIGHT: Content & Links */}
                     <div className="flex flex-col justify-center flex-1 text-center md:text-left py-4">
-                      <motion.h4 layoutId="title-socials" className="text-3xl md:text-5xl font-extrabold text-white mb-4">
+                      <motion.h4 layoutId="title-socials" className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
                         Let's Connect
                       </motion.h4>
                       
-                      <p className="text-slate-400 text-lg mb-10 max-w-lg mx-auto md:mx-0">
+                      <p className="text-slate-700 dark:text-slate-400 text-lg mb-10 max-w-lg mx-auto md:mx-0">
                         Feel free to reach out to me on any of my social platforms. I'm always open to discussing AI, new projects, and creative ideas!
                       </p>
                       
                       <div className="flex flex-col gap-4 w-full max-w-md mx-auto md:mx-0">
-                        <a href="https://instagram.com/hamza_azeem_rjpt" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-pink-500/20 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]">
+                        <a href="https://instagram.com/hamza_azeem_rjpt" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-slate-100 dark:bg-white/5 hover:translate-x-2 transition-all border border-pink-500/20 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]">
                           <FaInstagram className="text-4xl text-pink-500" />
                           <div className="text-left">
-                            <div className="font-bold text-white mb-0.5 text-lg">Instagram</div>
-                            <div className="text-slate-400">@hamza_azeem_rjpt</div>
+                            <div className="font-bold text-slate-900 dark:text-white mb-0.5 text-lg">Instagram</div>
+                            <div className="text-slate-700 dark:text-slate-400">@hamza_azeem_rjpt</div>
                           </div>
                         </a>
                         
-                        <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-neutral-400/20 hover:border-neutral-400/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                        <a href="https://twitter.com/zenta_cross" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-slate-100 dark:bg-white/5 hover:translate-x-2 transition-all border border-neutral-400/20 hover:border-neutral-400/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
                           <FaXTwitter className="text-4xl text-neutral-300" />
                           <div className="text-left">
-                            <div className="font-bold text-white mb-0.5 text-lg">X (Twitter)</div>
-                            <div className="text-slate-400">@zenta_cross</div>
+                            <div className="font-bold text-slate-900 dark:text-white mb-0.5 text-lg">X (Twitter)</div>
+                            <div className="text-slate-700 dark:text-slate-400">@zenta_cross</div>
                           </div>
                         </a>
 
-                        <a href="https://discord.com/users/zentacross" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-white/5 hover:translate-x-2 transition-all border border-indigo-400/20 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(129,140,248,0.2)]">
+                        <a href="https://discord.com/users/zentacross" target="_blank" rel="noreferrer" className="flex items-center gap-4 md:gap-6 p-4 md:p-5 glass-card rounded-2xl hover:bg-slate-100 dark:bg-white/5 hover:translate-x-2 transition-all border border-indigo-400/20 hover:border-indigo-400/50 hover:shadow-[0_0_20px_rgba(129,140,248,0.2)]">
                           <FaDiscord className="text-4xl text-indigo-400" />
                           <div className="text-left">
-                            <div className="font-bold text-white mb-0.5 text-lg">Discord</div>
-                            <div className="text-slate-400">@zentacross</div>
+                            <div className="font-bold text-slate-900 dark:text-white mb-0.5 text-lg">Discord</div>
+                            <div className="text-slate-700 dark:text-slate-400">@zentacross</div>
                           </div>
                         </a>
                       </div>
@@ -563,7 +567,7 @@ export default function Home() {
 
                 <div className={`p-6 md:p-12 ${selectedProject.image ? 'pt-0 -mt-8 md:-mt-12 relative z-10' : ''}`}>
                   
-                  <motion.h4 layoutId={`title-${selectedProject.id}`} className="text-3xl md:text-4xl font-extrabold text-white mb-2">
+                  <motion.h4 layoutId={`title-${selectedProject.id}`} className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-2">
                     {selectedProject.title}
                   </motion.h4>
                   
@@ -573,23 +577,23 @@ export default function Home() {
 
                   <div className="flex flex-wrap gap-3 mb-8">
                     {selectedProject.tags.map((tag) => (
-                      <span key={tag} className="text-sm font-semibold px-4 py-1.5 bg-white/5 text-slate-200 rounded-full border border-white/10">
+                      <span key={tag} className="text-sm font-semibold px-4 py-1.5 bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-slate-200 rounded-full border border-slate-300 dark:border-white/10">
                         {tag}
                       </span>
                     ))}
                   </div>
 
                   {/* Tabs */}
-                  <div className="flex gap-6 border-b border-white/10 mb-8">
+                  <div className="flex gap-6 border-b border-slate-300 dark:border-white/10 mb-8">
                     <button 
                       onClick={() => setActiveTab('overview')}
-                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'overview' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-500 hover:text-slate-300'}`}
+                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'overview' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300'}`}
                     >
                       Overview
                     </button>
                     <button 
                       onClick={() => setActiveTab('methodology')}
-                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'methodology' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-500 hover:text-slate-300'}`}
+                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'methodology' ? 'text-indigo-400 border-b-2 border-indigo-400' : 'text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300'}`}
                     >
                       Methodology
                     </button>
@@ -598,9 +602,9 @@ export default function Home() {
                   {activeTab === 'overview' && (
                     <motion.div 
                       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                      className="space-y-6 text-slate-300 leading-relaxed"
+                      className="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed"
                     >
-                      <h5 className="text-xs font-bold text-slate-500 uppercase tracking-widest border-b border-white/10 pb-2">Key Accomplishments</h5>
+                      <h5 className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest border-b border-slate-300 dark:border-white/10 pb-2">Key Accomplishments</h5>
                       <ul className="list-none space-y-4">
                         {selectedProject.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start">
@@ -615,10 +619,10 @@ export default function Home() {
                   {activeTab === 'methodology' && (
                     <motion.div 
                       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                      className="space-y-6 text-slate-300 leading-relaxed"
+                      className="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed"
                     >
                       {(selectedProject as any).architectureImage ? (
-                        <div className="relative w-full rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-2 md:p-4">
+                        <div className="relative w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 p-2 md:p-4">
                           <Image src={(selectedProject as any).architectureImage} alt={`${selectedProject.title} Architecture`} width={1600} height={1000} className="w-full h-auto rounded-xl" unoptimized />
                         </div>
                       ) : (
@@ -626,7 +630,7 @@ export default function Home() {
                           <h5 className="text-sm font-bold text-indigo-300 mb-3 flex items-center gap-2">
                             <FaDatabase className="inline" /> Architecture & Implementation
                           </h5>
-                          <p className="text-slate-400 text-sm">
+                          <p className="text-slate-700 dark:text-slate-400 text-sm">
                             Detailed architectural diagrams, algorithmic methodology, and training paradigms for this project will be populated here. This tab demonstrates the deeply technical "how" behind the results shown in the overview.
                           </p>
                         </div>
@@ -634,13 +638,13 @@ export default function Home() {
                     </motion.div>
                   )}
 
-                  <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
+                  <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-slate-300 dark:border-white/10 flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                     {selectedProject.repo && (
                       <a 
                         href={selectedProject.repo} 
                         target="_blank" 
                         rel="noreferrer" 
-                        className="inline-flex items-center gap-3 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] hover:-translate-y-1"
+                        className="inline-flex items-center gap-3 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-slate-900 dark:text-white font-bold rounded-xl transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] hover:-translate-y-1"
                       >
                         <FaGithub className="text-xl" /> View Source Code
                       </a>
@@ -652,14 +656,14 @@ export default function Home() {
                           setBibtexCopied(true);
                           setTimeout(() => setBibtexCopied(false), 2000);
                         }}
-                        className="relative inline-flex items-center gap-3 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/10 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1"
+                        className="relative inline-flex items-center gap-3 px-6 py-3 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:bg-white/20 text-slate-900 dark:text-white font-bold rounded-xl border border-slate-300 dark:border-white/10 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1"
                       >
                         <span>[Cite]</span>
                         <AnimatePresence>
                           {bibtexCopied && (
                             <motion.div 
                               initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: -20 }} exit={{ opacity: 0, y: -10 }}
-                              className="absolute top-0 left-1/2 -translate-x-1/2 px-3 py-1 bg-indigo-500 text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-indigo-500/30 pointer-events-none"
+                              className="absolute top-0 left-1/2 -translate-x-1/2 px-3 py-1 bg-indigo-500 text-slate-900 dark:text-white text-xs font-bold rounded-lg whitespace-nowrap shadow-lg shadow-indigo-500/30 pointer-events-none"
                             >
                               BibTeX Copied!
                             </motion.div>
@@ -672,7 +676,7 @@ export default function Home() {
                         href={(selectedProject as any).liveUrl} 
                         target="_blank" 
                         rel="noreferrer" 
-                        className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/10 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1"
+                        className="inline-flex items-center gap-3 px-6 py-3 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:bg-white/20 text-slate-900 dark:text-white font-bold rounded-xl border border-slate-300 dark:border-white/10 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1"
                       >
                         <FaExternalLinkAlt className="text-lg" /> Live Demo
                       </a>

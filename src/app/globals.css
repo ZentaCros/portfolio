@@ -1,13 +1,25 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
-  --color-background: #030014;
-  --color-foreground: #ededed;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @layer base {
+  :root {
+    --background: #ffffff; /* Pure white */
+    --foreground: #0f172a; /* slate-900 */
+  }
+
+  .dark {
+    --background: #030014; /* Deep space-indigo */
+    --foreground: #ededed;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -15,6 +27,7 @@
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   body::-webkit-scrollbar {
@@ -28,10 +41,17 @@
 
 @layer utilities {
   .glass {
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+  
+  .dark .glass {
     background: rgba(10, 10, 20, 0.4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: none;
   }
   
   .glass-card {
