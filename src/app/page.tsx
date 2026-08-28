@@ -279,7 +279,7 @@ export default function Home() {
               </a>
               <button 
                 onClick={() => {
-                  navigator.clipboard.writeText("hmzabizi602@gmail.com");
+                  navigator.clipboard.writeText("hamzabizi602@gmail.com");
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
