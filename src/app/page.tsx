@@ -257,7 +257,7 @@ export default function Home() {
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-slate-600 dark:text-slate-500 mb-8 max-w-sm leading-relaxed"
+            className="text-slate-600 dark:text-slate-300 mb-8 max-w-sm leading-relaxed"
           >
             I build scalable AI solutions and state-of-the-art machine learning models to solve complex real-world problems, specializing in Computer Vision and Applied AI.
           </motion.p>
@@ -267,7 +267,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }}
             className="mb-10"
           >
-            <h3 className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em] mb-4">Get in touch</h3>
+            <h3 className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em] mb-4">Get in touch</h3>
             <div className="flex items-center gap-5">
               <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all shadow-lg shadow-black/20 border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30">
                 <span className="sr-only">GitHub</span>
@@ -320,7 +320,7 @@ export default function Home() {
           <section id="expertise">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em]"
             >
               Expertise & Tech Stack
             </motion.h3>
@@ -354,7 +354,7 @@ export default function Home() {
           <section id="research">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em]"
             >
               Publications & Papers
             </motion.h3>
@@ -395,7 +395,7 @@ export default function Home() {
           <section id="projects">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em]"
             >
               Selected Projects
             </motion.h3>
@@ -436,7 +436,7 @@ export default function Home() {
           <section id="journey">
             <motion.h3 
               initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em]"
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em]"
             >
               Academic & Professional Journey
             </motion.h3>
@@ -457,7 +457,7 @@ export default function Home() {
                     <span className="text-indigo-600 dark:text-indigo-400 font-semibold text-sm">{item.year}</span>
                   </div>
                   <h5 className="text-slate-700 dark:text-slate-400 font-medium mb-4">{item.organization}</h5>
-                  <p className="text-slate-600 dark:text-slate-500 leading-relaxed text-sm md:text-base">
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-base">
                     {item.description}
                   </p>
                 </motion.div>
@@ -467,7 +467,7 @@ export default function Home() {
 
           {/* Footer */}
           <footer className="pt-20 pb-10 border-t border-slate-200 dark:border-white/5 text-center lg:text-left">
-            <p className="text-slate-600 dark:text-slate-500 text-sm">
+            <p className="text-slate-600 dark:text-slate-400 text-sm">
               <a href="https://github.com/ZentaCros/portfolio" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-indigo-400 transition-colors group">
                 <FaGithub className="text-lg group-hover:text-slate-900 dark:text-white transition-colors" />
                 Like this design? Get the source code on GitHub
@@ -503,7 +503,7 @@ export default function Home() {
                 {/* Close Button */}
                 <button 
                   onClick={() => setSelectedId(null)}
-                  className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white hover:bg-black/5 dark:bg-white/10 transition-colors z-[130]"
+                  className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 glass rounded-full flex items-center justify-center text-slate-500 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors z-[130]"
                 >
                   <FaTimes />
                 </button>
@@ -587,7 +587,7 @@ export default function Home() {
                   <div className="flex gap-6 border-b border-slate-300 dark:border-white/10 mb-8">
                     <button 
                       onClick={() => setActiveTab('overview')}
-                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'overview' ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 dark:border-indigo-400' : 'text-slate-600 dark:text-slate-500 hover:text-slate-600 dark:text-slate-300'}`}
+                      className={`pb-3 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'overview' ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 dark:border-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                     >
                       Overview
                     </button>
@@ -604,7 +604,7 @@ export default function Home() {
                       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                       className="space-y-6 text-slate-600 dark:text-slate-300 leading-relaxed"
                     >
-                      <h5 className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest border-b border-slate-300 dark:border-white/10 pb-2">Key Accomplishments</h5>
+                      <h5 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-200 dark:border-white/10 pb-2">Key Accomplishments</h5>
                       <ul className="list-none space-y-4">
                         {selectedProject.bullets.map((bullet, idx) => (
                           <li key={idx} className="flex items-start">

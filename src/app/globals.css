@@ -16,8 +16,8 @@
   }
 
   .dark {
-    --background: #030014; /* Deep space-indigo */
-    --foreground: #ededed;
+    --background: #0d0d20; /* Dark navy — visible but not pitch black */
+    --foreground: #e8eaf0;
   }
 
   body {
@@ -52,10 +52,10 @@
   }
 
   .dark .glass {
-    background: rgba(10, 10, 20, 0.40);
+    background: rgba(30, 30, 55, 0.55);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: none;
   }
 
@@ -76,10 +76,10 @@
   }
 
   .dark .glass-card {
-    background: rgba(15, 15, 30, 0.50);
+    background: rgba(25, 25, 50, 0.65);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: none;
   }
 
@@ -98,12 +98,12 @@
   }
 
   .dark .glass-modal {
-    background: rgba(10, 10, 25, 0.80);
+    background: rgba(18, 18, 40, 0.92);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.6),
-                0 0 0 1px rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(99, 102, 241, 0.10);
   }
 
   /* ─── Text Gradient (hero name) ─── */
