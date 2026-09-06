@@ -35,7 +35,7 @@ export function ThemeToggle() {
           opacity: isDark ? 1 : 0,
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="absolute text-sky-300"
+        className="absolute text-blue-400"
       >
         <FaMoon className="text-lg" />
       </motion.div>
