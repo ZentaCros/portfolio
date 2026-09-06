@@ -214,10 +214,22 @@ export default function Home() {
 
   return (
     <>
-      <div className="fixed top-6 right-6 md:top-10 md:right-10 z-[9999]">
-        <ThemeToggle />
-      </div>
-      <div className="relative min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-200 selection:bg-indigo-500/30 font-sans">
+      <nav className="fixed top-0 left-0 right-0 z-[9950] glass border-b border-slate-200 dark:border-white/5 px-6 md:px-12 py-4 flex items-center justify-between">
+        <div className="font-extrabold text-xl tracking-tight text-slate-900 dark:text-white">
+          Hamza<span className="text-indigo-600 dark:text-indigo-400">.</span>
+        </div>
+        <div className="flex items-center gap-6">
+          <ul className="hidden md:flex space-x-8 text-sm font-bold text-slate-600 dark:text-slate-300">
+            <li><a href="#research" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Publications</a></li>
+            <li><a href="#projects" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a></li>
+            <li><a href="#expertise" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Expertise</a></li>
+            <li><a href="#journey" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Journey</a></li>
+          </ul>
+          <ThemeToggle />
+        </div>
+      </nav>
+
+      <div className="relative min-h-screen overflow-x-hidden text-slate-900 dark:text-slate-200 selection:bg-indigo-500/30 font-sans pt-20">
         <CustomCursor />
       <AmbientBackground />
 
@@ -316,40 +328,6 @@ export default function Home() {
         {/* RIGHT COLUMN (Scrolling) */}
         <main className="lg:w-7/12 flex flex-col space-y-32 py-10">
 
-          {/* Expertise & Tech Stack */}
-          <section id="expertise">
-            <motion.h3 
-              initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em]"
-            >
-              Expertise & Tech Stack
-            </motion.h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {techStack.map((stack, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="glass-card p-6 rounded-2xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/30 transition-all duration-300 group"
-                >
-                  <h4 className="text-slate-900 dark:text-white font-bold mb-5 flex items-center gap-2 group-hover:text-indigo-400 transition-colors">
-                    {stack.category}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {stack.skills.map((skill) => (
-                      <span key={skill} className="text-xs font-semibold px-3 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-200 rounded-lg border border-indigo-200 dark:border-indigo-500/20">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
           {/* Publications & Papers Section */}
           <section id="research">
             <motion.h3 
@@ -426,6 +404,40 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* Expertise & Tech Stack */}
+          <section id="expertise">
+            <motion.h3 
+              initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              className="text-sm font-bold mb-10 text-slate-600 dark:text-slate-400 uppercase tracking-[0.2em]"
+            >
+              Expertise & Tech Stack
+            </motion.h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {techStack.map((stack, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="glass-card p-6 rounded-2xl border border-slate-200 dark:border-white/5 hover:border-indigo-500/30 transition-all duration-300 group"
+                >
+                  <h4 className="text-slate-900 dark:text-white font-bold mb-5 flex items-center gap-2 group-hover:text-indigo-400 transition-colors">
+                    {stack.category}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {stack.skills.map((skill) => (
+                      <span key={skill} className="text-xs font-semibold px-3 py-1.5 bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-200 rounded-lg border border-indigo-200 dark:border-indigo-500/20">
+                        {skill}
+                      </span>
+                    ))}
                   </div>
                 </motion.div>
               ))}
