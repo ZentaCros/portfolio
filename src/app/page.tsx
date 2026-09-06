@@ -269,7 +269,7 @@ export default function Home() {
           >
             <h3 className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-[0.2em] mb-4">Get in touch</h3>
             <div className="flex items-center gap-5">
-              <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:text-white hover:bg-black/5 dark:bg-white/10 hover:scale-110 transition-all shadow-lg shadow-black/20 border border-slate-300 dark:border-white/10 hover:border-slate-300 dark:border-white/30">
+              <a href="https://github.com/ZentaCros" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all shadow-lg shadow-black/20 border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/30">
                 <span className="sr-only">GitHub</span>
                 <FaGithub className="text-2xl" />
               </a>
@@ -491,7 +491,7 @@ export default function Home() {
               animate={{ opacity: 1 }} 
               exit={{ opacity: 0 }} 
               onClick={() => setSelectedId(null)}
-              className="fixed inset-0 bg-white dark:bg-black/60 backdrop-blur-sm z-[110]"
+              className="fixed inset-0 bg-slate-200/70 dark:bg-black/60 backdrop-blur-md z-[110]"
             />
             
             {/* Modal Content */}

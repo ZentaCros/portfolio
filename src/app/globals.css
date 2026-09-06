@@ -11,7 +11,7 @@
 
 @layer base {
   :root {
-    --background: #ffffff; /* Pure white */
+    --background: #f8fafc; /* slate-50 — softer than pure white */
     --foreground: #0f172a; /* slate-900 */
   }
 
@@ -23,37 +23,133 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    cursor: none; 
+    cursor: none;
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-  
+
   body::-webkit-scrollbar {
     display: none;
   }
-  
+
   a, button, [role="button"], input, select, textarea {
     cursor: none;
   }
 }
 
 @layer utilities {
+
+  /* ─── Glass (icon buttons, profile card, theme toggle) ─── */
   .glass {
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.08),
+                0 1px 4px -1px rgba(0, 0, 0, 0.04);
   }
-  
+
   .dark .glass {
-    background: rgba(10, 10, 20, 0.4);
+    background: rgba(10, 10, 20, 0.40);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: none;
   }
-  
+
+  /* ─── Glass Card (expertise / project / journey cards) ─── */
   .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(148, 163, 184, 0.25); /* slate-400/25 */
+    box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.06),
+                0 1px 3px -1px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 8px 32px -4px rgba(99, 102, 241, 0.12),
+                0 2px 8px -2px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .glass-card {
+    background: rgba(15, 15, 30, 0.50);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+  }
+
+  .dark .glass-card:hover {
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.2);
+  }
+
+  /* ─── Glass Modal ─── */
+  .glass-modal {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.15),
+                0 8px 24px -4px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .glass-modal {
+    background: rgba(10, 10, 25, 0.80);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 32px 80px -12px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(99, 102, 241, 0.08);
+  }
+
+  /* ─── Text Gradient (hero name) ─── */
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      #1e293b 0%,
+      #334155 40%,
+      #6366f1 80%,
+      #818cf8 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .dark .text-gradient {
+    background: linear-gradient(
+      135deg,
+      #e2e8f0 0%,
+      #cbd5e1 35%,
+      #818cf8 70%,
+      #a5b4fc 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ─── Subtle dot-grid background ─── */
+  .bg-grid {
+    background-image: radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.08) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  .dark .bg-grid {
+    background-image: radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.12) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
   }
 }
+
