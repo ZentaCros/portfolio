@@ -151,14 +151,14 @@ function CustomCursor() {
   return (
     <>
       <motion.div
-        className="hidden md:block fixed top-0 left-0 w-4 h-4 bg-indigo-500 rounded-full pointer-events-none z-[9999] mix-blend-screen"
+        className="hidden md:block fixed top-0 left-0 w-4 h-4 bg-indigo-600 dark:bg-indigo-400 rounded-full pointer-events-none z-[9999] shadow-sm"
         animate={{ x: mousePosition.x - 8, y: mousePosition.y - 8 }}
-        transition={{ type: "spring", stiffness: 1000, damping: 40, mass: 0.1 }}
+        transition={{ type: "spring", stiffness: 2500, damping: 40, mass: 0.05 }}
       />
       <motion.div
-        className="hidden md:block fixed top-0 left-0 w-12 h-12 border border-indigo-400/30 rounded-full pointer-events-none z-[9998]"
+        className="hidden md:block fixed top-0 left-0 w-12 h-12 border border-indigo-500/50 dark:border-indigo-400/40 rounded-full pointer-events-none z-[9998]"
         animate={{ x: mousePosition.x - 24, y: mousePosition.y - 24 }}
-        transition={{ type: "spring", stiffness: 200, damping: 20, mass: 0.5 }}
+        transition={{ type: "spring", stiffness: 800, damping: 35, mass: 0.2 }}
       />
     </>
   );
