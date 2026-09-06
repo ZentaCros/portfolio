@@ -245,7 +245,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative w-56 h-72 md:w-64 md:h-[22rem] rounded-3xl overflow-hidden border border-slate-300 dark:border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass cursor-pointer hover:border-indigo-500/50 transition-colors group"
+            className="relative w-56 h-72 md:w-64 md:h-[22rem] shrink-0 rounded-3xl overflow-hidden border border-slate-300 dark:border-white/10 shadow-[0_0_40px_rgba(99,102,241,0.2)] mb-8 glass cursor-pointer hover:border-indigo-500/50 transition-colors group"
           >
             <Image src="/profile.jpg" alt="Muhammad Hamza Azeem" fill className="object-cover group-hover:scale-105 transition-transform duration-500" unoptimized />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-white/90 dark:bg-black/40 transition-opacity duration-300">
